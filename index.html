@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!--link rel="stylesheet" type="text/css" href="tally.css" media="screen" /-->
+    <title>Tickle Shibe</title>
+    <style>
+        body {
+            background-color: #F0B260;
+        }
+        
+        p {
+            font-family: "Comic Sans MS";
+            text-align: center;
+            color: #FFFFFF;
+            font-size: 20px;
+        }
+        
+        h1 {
+            font-family: "Comic Sans MS";
+            text-align: center;
+            color: #FFFFFF;
+        }
+        
+        h3 {
+            font-family: "Comic Sans MS";
+            text-align: center;
+            color: #FFFFFF;
+        }
+        
+        h5 {
+            font-family: "Comic Sans MS";
+            text-align: center;
+            color: #3C1F17;
+        }
+        
+        #tickleshib {
+            font-family: "Comic Sans MS";
+            text-align: center;
+            color: #FFFFFF;
+            font-size: 20px;
+        }
+        
+        .container {
+            border: 5px solid #000;
+            border-radius: 10px;
+            width: 500px;
+            min-height: 300px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            padding: 1rem;
+            background-color: #3C1F17;
+        }
+    </style>
+</head>
+
+<body>
+    <center>
+        <div class="container">
+            <h1 class="text-center">TICKLE THE SHIBE!</h1>
+            <h3 class="text-center">Make Shibe happy with tickle.</h3>
+            <p>Happy Meter:<br>
+                <div id="tickleshib">0</div>
+            </p>
+        </div>
+        <img id="shibe" src="1.png" height="400px" width="400px" onclick="tickling()" onmouseout="nohaha()" onmouseover="haha()">
+        <h5>Made by : Oka!</h5>
+    </center>
+    <script>
+        var tickles = 0;
+        const getRandomNumber = (min, max) => {
+            return Math.floor(Math.random() * (max - min + 1)) + min;
+        };
+
+        const points = () => getRandomNumber(1, 10);
+        const pointy = () => getRandomNumber(4, 8);
+
+        function tickling() {
+            tickles += pointy()
+            document.getElementById('tickleshib').innerHTML = tickles;
+            document.getElementById('shibe').src = "2.png";
+        }
+
+        function haha() {
+            tickles += points()
+            document.getElementById('tickleshib').innerHTML = tickles;
+            document.getElementById('shibe').src = "4.gif";
+
+        }
+
+        function nohaha() {
+            document.getElementById('shibe').src = "1.png";
+
+        }
+    </script>
+</body>
+
+</html>
